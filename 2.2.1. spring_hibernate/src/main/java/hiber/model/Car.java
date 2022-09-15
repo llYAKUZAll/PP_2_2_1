@@ -16,7 +16,8 @@ public class Car {
     @Column
     private int series;
 
-    public Car(){}
+    public Car() {
+    }
 
     public Car(String model, int series) {
         this.model = model;
@@ -26,6 +27,7 @@ public class Car {
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -33,6 +35,7 @@ public class Car {
     public String getModel() {
         return model;
     }
+
     public void setModel(String model) {
         this.model = model;
     }
@@ -40,6 +43,7 @@ public class Car {
     public int getSeries() {
         return series;
     }
+
     public void setSeries(int series) {
         this.series = series;
     }
@@ -47,10 +51,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "model='" + model + '\'' +
-                ", series=" + series +
-                '}';
+        return "Car{" + "model='" + model + '\'' + ", series=" + series + '}';
     }
 
     @Override
