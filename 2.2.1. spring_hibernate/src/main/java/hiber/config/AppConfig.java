@@ -23,17 +23,20 @@ import java.util.Properties;
 @ComponentScan(value = "hiber")
 public class AppConfig {
     private Environment env;
+
     public AppConfig(Environment environment) {
         this.env = environment;
     }
 
     @Bean
     public DataSource getDataSource() {
+
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUrl(env.getProperty("db.url"));
         dataSource.setUsername(env.getProperty("db.username"));
         dataSource.setPassword(env.getProperty("db.password"));
+
         return dataSource;
     }
 
@@ -48,13 +51,16 @@ public class AppConfig {
 
         factoryBean.setHibernateProperties(props);
         factoryBean.setAnnotatedClasses(User.class, Car.class);
+
         return factoryBean;
     }
 
     @Bean
     public HibernateTransactionManager getTransactionManager() {
+
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(getSessionFactory().getObject());
+
         return transactionManager;
     }
 }
